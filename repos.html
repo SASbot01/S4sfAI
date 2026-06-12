@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0C0F0D" />
+  <title>Marketplace de repos · s4sf</title>
+  <meta name="description" content="Marketplace abierto de repositorios de GitHub públicos y gratuitos. Explora y aporta el tuyo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Marketplace de repos · s4sf" />
+  <meta property="og:description" content="Repositorios de GitHub públicos y gratis. Explora y deja el tuyo." />
+  <meta property="og:image" content="assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/og.png" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23B2F23C'/><text x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%230A0E07'>s4</text></svg>" />
+  <link rel="stylesheet" href="assets/theme.css" />
+</head>
+<body>
+  <script src="assets/config.js"></script>
+  <script src="assets/atmosphere.js"></script>
+
+  <nav class="apex-nav">
+    <div class="apex-container apex-nav-inner">
+      <a class="apex-brand" href="index.html">
+        <img class="apex-brand-ava" src="assets/avatar.png" alt="s4sf" />
+        <span class="apex-brand-name">s4sf_ai</span>
+      </a>
+      <div class="apex-nav-links">
+        <a class="apex-nav-link" href="index.html#hub">Acceso</a>
+        <a class="apex-nav-link" href="empresas.html">Empresas</a>
+        <a class="apex-nav-link" href="repos.html" aria-current="page">Repos</a>
+        <a class="apex-nav-link apex-nav-link--cta apex-btn apex-btn--primary" data-open-repo style="padding:9px 16px;font-size:12px">+ Aportar repo</a>
+      </div>
+      <button class="apex-nav-toggle" aria-label="Menú" aria-expanded="false">
+        <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="apex-mobile-menu">
+    <a href="index.html#hub">Acceso</a>
+    <a href="empresas.html">Empresas</a>
+    <a href="repos.html">Repos</a>
+    <a class="is-cta" data-open-repo>+ Aportar repo</a>
+  </div>
+
+  <main class="apex-shell">
+    <!-- ── Hero ──────────────────────────────────────────────────────────── -->
+    <header class="apex-section apex-container" style="padding-bottom:clamp(28px,4vw,44px)">
+      <a class="apex-mono apex-muted reveal" href="index.html" style="font-size:12px">← Volver al hub</a>
+      <div class="reveal" style="margin-top:24px">
+        <span class="apex-pill"><span class="dot"></span><span id="repoCount">0</span> repos · públicos & gratis</span>
+      </div>
+      <h1 class="apex-h1 reveal" style="margin-top:18px;max-width:16ch">El marketplace de repos</h1>
+      <p class="apex-lead reveal" style="max-width:56ch;margin-top:18px">
+        Un sitio abierto para repositorios de GitHub públicos y gratuitos. Explora lo que comparte
+        la comunidad y <strong style="color:var(--apex-plat-hi);font-weight:500">deja el tuyo</strong>
+        con su descripción. Sin barreras: aportar es el precio de entrada.
+      </p>
+      <div class="row mt-m reveal">
+        <button class="apex-btn apex-btn--primary apex-btn--lg" data-open-repo>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          Aportar mi repositorio
+        </button>
+      </div>
+    </header>
+
+    <!-- ── Toolbar + grid ───────────────────────────────────────────────── -->
+    <section class="apex-section--tight apex-container" style="padding-top:0">
+      <div class="repo-toolbar reveal">
+        <label class="repo-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="repoSearch" type="search" placeholder="Buscar por nombre, lenguaje, tag…" autocomplete="off" />
+        </label>
+        <button class="apex-btn apex-btn--ghost" data-open-repo>+ Añadir</button>
+      </div>
+
+      <div class="repo-grid" id="repoGrid"><!-- repos.js --></div>
+
+      <p class="apex-muted reveal" style="font-size:12px;margin-top:26px;max-width:62ch">
+        <span class="apex-mono accent">Nota:</span> las altas se guardan en tu navegador. Para que se compartan
+        entre todos los visitantes hay que conectar un backend (Supabase encaja con el stack) — la interfaz ya está lista.
+      </p>
+    </section>
+  </main>
+
+  <!-- ── Modal de alta ─────────────────────────────────────────────────── -->
+  <div class="modal-backdrop" id="repoModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="repoModalTitle">
+      <div class="modal-head">
+        <div>
+          <span class="apex-eyebrow apex-eyebrow--accent">Aportar al marketplace</span>
+          <h2 class="apex-h2" id="repoModalTitle" style="margin-top:8px">Publica tu repositorio</h2>
+        </div>
+        <button class="modal-close" data-close-repo aria-label="Cerrar">&times;</button>
+      </div>
+
+      <form id="repoForm" novalidate>
+        <div class="field">
+          <label for="f_url">URL del repositorio de GitHub *</label>
+          <input id="f_url" type="url" placeholder="https://github.com/usuario/mi-repo" required />
+          <span class="hint">El nombre y el usuario se detectan solos desde la URL.</span>
+        </div>
+        <div class="field">
+          <label for="f_desc">Descripción *</label>
+          <textarea id="f_desc" placeholder="¿Qué hace, para qué sirve y por qué merece la pena?" required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f_lang">Lenguaje principal</label>
+            <input id="f_lang" list="langList" placeholder="TypeScript, Python…" />
+            <datalist id="langList"></datalist>
+          </div>
+          <div class="field">
+            <label for="f_tags">Tags (máx. 4, separados por comas)</label>
+            <input id="f_tags" placeholder="ia, automatizacion, cli" />
+          </div>
+        </div>
+        <div id="repoErr" class="apex-mono" style="color:var(--apex-status-neg);font-size:12.5px;min-height:18px"></div>
+        <div class="row" style="justify-content:flex-end;margin-top:8px">
+          <button type="button" class="apex-btn apex-btn--ghost" data-close-repo>Cancelar</button>
+          <button type="submit" class="apex-btn apex-btn--primary">Publicar repo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="apex-footer">
+    <div class="apex-container footer-inner">
+      <a class="apex-brand" href="index.html">
+        <img class="apex-brand-ava" src="assets/avatar.png" alt="s4sf" />
+        <span class="apex-brand-name">s4sf_ai</span>
+      </a>
+      <nav class="footer-links">
+        <a href="index.html#hub">Acceso</a>
+        <a href="empresas.html">Empresas</a>
+        <a href="repos.html">Repos</a>
+        <a href="https://github.com/SASbot01/apexclosers" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <span class="footer-fine">© <span data-year></span> · s4sf · open source</span>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script src="assets/repos.js"></script>
+</body>
+</html>

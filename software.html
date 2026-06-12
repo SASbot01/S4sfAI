@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0C0F0D" />
+  <title>Software · s4sf</title>
+  <meta name="description" content="El software de BlackWolf: APEX Operations y APEX Closer. Entra y descubre la historia de cada producto." />
+  <meta property="og:title" content="Software · s4sf" />
+  <meta property="og:description" content="APEX Operations y APEX Closer. La historia detrás de cada producto." />
+  <meta property="og:image" content="assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/og.png" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23B2F23C'/><text x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%230A0E07'>s4</text></svg>" />
+  <link rel="stylesheet" href="assets/theme.css" />
+</head>
+<body>
+  <script src="assets/config.js"></script>
+  <script src="assets/atmosphere.js"></script>
+
+  <nav class="apex-nav">
+    <div class="apex-container apex-nav-inner">
+      <a class="apex-brand" href="index.html">
+        <img class="apex-brand-ava" src="assets/avatar.png" alt="s4sf" />
+        <span class="apex-brand-name">s4sf_ai</span>
+      </a>
+      <div class="apex-nav-links">
+        <a class="apex-nav-link" href="empresas.html">← Empresas</a>
+        <a class="apex-nav-link" href="servicios.html">Servicios</a>
+      </div>
+      <button class="apex-nav-toggle" aria-label="Menú" aria-expanded="false">
+        <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="apex-mobile-menu">
+    <a href="empresas.html">← Empresas</a>
+    <a href="software.html">Software</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="index.html">Inicio</a>
+  </div>
+
+  <main class="apex-shell">
+    <div class="apex-container center" style="padding-top:40px">
+      <span class="apex-eyebrow apex-eyebrow--accent reveal" style="display:block">BlackWolf · Software</span>
+      <h1 class="apex-h1 reveal" style="margin-top:14px">Pulsa un producto. Entra en su historia.</h1>
+      <p class="apex-lead reveal" style="max-width:46ch;margin:14px auto 0">Cada software tiene una historia: el problema, la idea y lo que resuelve. Tócalo y te la cuento.</p>
+    </div>
+
+    <!-- ORBES FLOTANTES -->
+    <section class="sw-space">
+      <button class="sw-orb reveal" data-story="apex-closer" aria-label="Abrir la historia de APEX Closer">
+        <span class="sw-orb-inner">
+          <span class="badge">Ventas</span>
+          <h3>APEX Closer</h3>
+          <p>El sistema operativo del closer.</p>
+          <span class="enter">Entrar a la historia</span>
+        </span>
+      </button>
+
+      <button class="sw-orb reveal" data-story="apex-operations" aria-label="Abrir la historia de APEX Operations">
+        <span class="sw-orb-inner">
+          <span class="badge">Operaciones</span>
+          <h3>APEX Operations</h3>
+          <p>El núcleo de toda la operación.</p>
+          <span class="enter">Entrar a la historia</span>
+        </span>
+      </button>
+
+      <div class="sw-orb sw-orb--soon reveal" aria-hidden="true">
+        <span class="sw-orb-inner">
+          <span class="badge" style="color:var(--apex-plat-low)">Próximamente</span>
+          <h3 style="color:var(--apex-plat-low)">+ nuevos</h3>
+          <p>Más software en camino.</p>
+        </span>
+      </div>
+    </section>
+  </main>
+
+  <!-- OVERLAY HISTORIA -->
+  <div class="sw-story" id="swStory" role="dialog" aria-modal="true">
+    <div class="sw-story-bg" aria-hidden="true"></div>
+    <button class="sw-story-close" id="swClose" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="sw-story-inner">
+      <div class="apex-eyebrow apex-eyebrow--accent" style="margin-bottom:6px"><span id="swBadge"></span></div>
+      <div class="apex-h2" id="swTitle" style="margin-bottom:24px"></div>
+      <div class="sw-progress" id="swProgress"></div>
+      <div id="swChapter"></div>
+      <span class="sw-hint">Navega · <span class="k">←</span> <span class="k">→</span> · <span class="k">Esc</span> para salir</span>
+    </div>
+    <div class="sw-nav-dot">
+      <button class="sw-arrow" id="swPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="sw-arrow" id="swNext" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="assets/main.js"></script>
+  <script src="assets/software.js"></script>
+</body>
+</html>
