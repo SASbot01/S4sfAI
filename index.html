@@ -16,13 +16,15 @@
   <meta name="twitter:image" content="assets/og.png" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23B2F23C'/><text x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%230A0E07'>s4</text></svg>" />
   <link rel="stylesheet" href="assets/theme.css" />
+  <link rel="preload" as="image" href="assets/avatar.webp" type="image/webp" />
+  <link rel="preload" as="image" href="assets/bg-stage.webp" type="image/webp" fetchpriority="high" />
 </head>
 <body>
-  <script src="assets/config.js"></script>
-  <script src="assets/atmosphere.js"></script>
+  <script defer src="assets/config.js"></script>
+  <script defer src="assets/atmosphere.js"></script>
 
   <!-- Foto de escenario de fondo en movimiento + velo -->
-  <img class="bio-bg-portrait" src="assets/bg-stage.png" alt="" aria-hidden="true" />
+  <picture><source srcset="assets/bg-stage.webp" type="image/webp"><img class="bio-bg-portrait" src="assets/bg-stage.png" alt="" aria-hidden="true" decoding="async" /></picture>
   <div class="bio-veil" aria-hidden="true"></div>
 
   <main class="bio-stage">
@@ -30,7 +32,7 @@
       <!-- Foto de perfil -->
       <div class="bio-avatar-wrap reveal">
         <span class="bio-avatar-ring" aria-hidden="true"></span>
-        <img class="bio-avatar" src="assets/avatar.png" alt="Alejandro Silvestre — s4sf" />
+        <picture><source srcset="assets/avatar.webp" type="image/webp"><img class="bio-avatar" src="assets/avatar.png" alt="Alejandro Silvestre — s4sf" width="124" height="124" fetchpriority="high" decoding="async" /></picture>
         <span class="bio-avatar-dot" aria-hidden="true"></span>
       </div>
 
@@ -86,6 +88,6 @@
     </div>
   </main>
 
-  <script src="assets/main.js"></script>
+  <script defer src="assets/main.js"></script>
 </body>
 </html>

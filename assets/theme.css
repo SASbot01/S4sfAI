@@ -540,3 +540,44 @@ a { color: inherit; text-decoration: none; }
   .reveal, .sw-anim { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * PERF + MÓVIL (iPhone 15 Pro / notch / Dynamic Island) — añadido optimización
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* El wrapper <picture> no debe generar caja: la <img> conserva su layout */
+picture { display: contents; }
+
+/* Evita reflow de imágenes mientras cargan y mejora nitidez en retina */
+img { max-width: 100%; }
+
+/* Altura real del viewport en móvil (sin saltos por la barra de Safari) */
+@supports (height: 100dvh) {
+  body { min-height: 100dvh; }
+  .bio-stage { min-height: 100dvh; }
+}
+
+/* Safe-area insets: notch lateral, isla dinámica y home indicator */
+.apex-container {
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
+.apex-nav { padding-top: env(safe-area-inset-top); }
+.bio-stage {
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+/* iPhone 15 Pro (393pt) y móviles estrechos: tipografía/espaciado más cómodos
+   y áreas táctiles ≥ 44px (guía Apple HIG) */
+@media (max-width: 430px) {
+  .apex-container { padding-left: max(18px, env(safe-area-inset-left));
+                    padding-right: max(18px, env(safe-area-inset-right)); }
+  .apex-nav-inner { height: 56px; }
+  .bio-social { min-width: 44px; min-height: 44px; }
+  .bio-row { min-height: 52px; }
+}
+
+/* Imágenes decodificadas async no deben parpadear */
+.bio-avatar, .apex-brand-ava, .bio-bg-portrait { background: transparent; }

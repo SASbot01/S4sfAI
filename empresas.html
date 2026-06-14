@@ -14,15 +14,16 @@
   <meta name="twitter:image" content="assets/og.png" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23B2F23C'/><text x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%230A0E07'>s4</text></svg>" />
   <link rel="stylesheet" href="assets/theme.css" />
+  <link rel="preload" as="image" href="assets/avatar.webp" type="image/webp" />
 </head>
 <body>
-  <script src="assets/config.js"></script>
-  <script src="assets/atmosphere.js"></script>
+  <script defer src="assets/config.js"></script>
+  <script defer src="assets/atmosphere.js"></script>
 
   <nav class="apex-nav">
     <div class="apex-container apex-nav-inner">
       <a class="apex-brand" href="index.html">
-        <img class="apex-brand-ava" src="assets/avatar.png" alt="s4sf" />
+        <picture><source srcset="assets/avatar.webp" type="image/webp"><img class="apex-brand-ava" src="assets/avatar.png" alt="s4sf" width="30" height="30" decoding="async" /></picture>
         <span class="apex-brand-name">s4sf_ai</span>
       </a>
       <div class="apex-nav-links">
@@ -102,7 +103,7 @@
   <footer class="apex-footer">
     <div class="apex-container footer-inner">
       <a class="apex-brand" href="index.html">
-        <img class="apex-brand-ava" src="assets/avatar.png" alt="s4sf" />
+        <picture><source srcset="assets/avatar.webp" type="image/webp"><img class="apex-brand-ava" src="assets/avatar.png" alt="s4sf" width="30" height="30" decoding="async" /></picture>
         <span class="apex-brand-name">s4sf_ai</span>
       </a>
       <nav class="footer-links">
@@ -115,6 +116,6 @@
     </div>
   </footer>
 
-  <script src="assets/main.js"></script>
+  <script defer src="assets/main.js"></script>
 </body>
 </html>
