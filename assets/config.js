@@ -25,7 +25,7 @@ window.S4SF = {
   // ── Los 4 botones del hub ────────────────────────────────────────────────
   links: {
     whatsapp: 'https://chat.whatsapp.com/F9s5CXiB5eE72j8MpOWBdK?mode=gi_t',   // comunidad de WhatsApp
-    skool:    'https://formacion.s4sf.net/mid/demo',   // comunidad / formación
+    skool:    'https://www.skool.com/apex-closers-4657/about',   // comunidad / formación
     // "empresas" y "repos" son páginas internas de este mismo sitio:
     empresas: 'empresas.html',
     repos:    'repos.html',
@@ -38,7 +38,7 @@ window.S4SF = {
   },
   apexCloser: {
     repo: 'https://github.com/SASbot01/apexclosers',
-    demo: 'https://www.skool.com/apexclosers/about',    // comunidad / web pública de Apex Closer
+    demo: 'https://www.skool.com/apex-closers-4657/about',    // comunidad / web pública de Apex Closer
   },
 
   // Marketplace de repos: SOLO aportes de la comunidad.
