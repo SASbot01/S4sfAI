@@ -60,6 +60,14 @@
   @keyframes apex-twinkle-b { 0%,100%{opacity:1} 50%{opacity:.5} }
   @keyframes apex-grain { 0%{transform:translate(0,0)} 100%{transform:translate(-4px,3px)} }
   @media (prefers-reduced-motion: reduce){ .apex-nebula,.apex-stars-a,.apex-stars-b,.apex-grain-layer{ animation: none !important; } }
+  /* ── Móvil: el blur(180px) y el grano machacan la GPU. Aligeramos. ── */
+  @media (max-width: 720px) {
+    .apex-nebula { filter: blur(80px); animation: none; }
+    .apex-nebula--3, .apex-nebula--4 { display: none; }
+    .apex-stars-a, .apex-stars-b { animation: none; }
+    .apex-grain-layer { display: none; }
+    .apex-atm-grid { background-size: 56px 56px; }
+  }
   `;
 
   var style = document.createElement('style');

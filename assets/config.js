@@ -15,17 +15,17 @@ window.S4SF = {
     companyWeb: 'https://blackwolfsec.io',
   },
 
-  // ── CTA principal: la formación (Skool) ──────────────────────────────────
+  // ── CTA principal: la formación ──────────────────────────────────────────
   formacion: {
-    url: 'PEGA_AQUI_LINK_SKOOL',     // ← enlace de tu Skool / formación
+    url: 'https://www.skool.com/apex-closers-4657/about',   // ← enlace de tu formación
     name: 'La formación',
     price: '',                       // opcional, ej. '49€/mes' (vacío = no se muestra)
   },
 
   // ── Los 4 botones del hub ────────────────────────────────────────────────
   links: {
-    whatsapp: 'PEGA_AQUI_LINK_WHATSAPP',   // ← invitación a la comunidad de WhatsApp
-    skool:    'PEGA_AQUI_LINK_SKOOL',      // ← comunidad de Skool (suele ser el mismo que la formación)
+    whatsapp: 'https://chat.whatsapp.com/F9s5CXiB5eE72j8MpOWBdK?mode=gi_t',   // comunidad de WhatsApp
+    skool:    'https://formacion.s4sf.net/mid/demo',   // comunidad / formación
     // "empresas" y "repos" son páginas internas de este mismo sitio:
     empresas: 'empresas.html',
     repos:    'repos.html',
@@ -38,29 +38,11 @@ window.S4SF = {
   },
   apexCloser: {
     repo: 'https://github.com/SASbot01/apexclosers',
-    demo: 'PEGA_AQUI_LINK_APEX_CLOSER',    // ← demo / web pública de Apex Closer si la tienes
+    demo: 'https://www.skool.com/apexclosers/about',    // comunidad / web pública de Apex Closer
   },
 
-  // Repos que aparecen "destacados" de serie en el marketplace (semilla).
-  // El resto los va añadiendo la gente; se guardan en su navegador (localStorage).
-  seedRepos: [
-    {
-      name: 'Apex-operations', owner: 'aatshadow',
-      url: 'https://github.com/aatshadow/Apex-operations',
-      desc: 'Plataforma de operaciones de BlackWolf. CRM, ventas, métricas, IA local. El producto estrella.',
-      lang: 'TypeScript', tags: ['saas', 'crm', 'ia'], featured: true,
-    },
-    {
-      name: 'apexclosers', owner: 'SASbot01',
-      url: 'https://github.com/SASbot01/apexclosers',
-      desc: 'Sistema operativo para closers de habla hispana: graba, transcribe y analiza tus llamadas de venta con IA.',
-      lang: 'JavaScript', tags: ['ventas', 'ia', 'closers'], featured: true,
-    },
-    {
-      name: 'ai-agent-console', owner: 'aatshadow',
-      url: 'https://github.com/aatshadow',
-      desc: 'Orquestación multi-agente: tmux + Claude Code + Telegram, self-hosted en VPS.',
-      lang: 'Python', tags: ['agentes', 'automatizacion'], featured: true,
-    },
-  ],
+  // Marketplace de repos: SOLO aportes de la comunidad.
+  // Tus propios repos no se publican aquí; la gente añade los suyos y se guardan
+  // en su navegador (localStorage). Por eso el marketplace arranca vacío.
+  seedRepos: [],
 };
